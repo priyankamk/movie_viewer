@@ -1,0 +1,41 @@
+<%# details of the movie %>
+<section>
+    <div class="card">
+        <div class="card-header">
+            <h2><%= @title%> (<%= @year %>)</h2> 
+        </div>
+        <div class="card-body">
+            <div class="row ml-1 mr-1">
+                <div class="alert alert-success" role="alert">
+                    <p class="h5"> <%= @movie_name["Plot"] %></p>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src= "<%= @poster%>" class="pl-1">
+                    </div>
+                    <div class="col">
+                            <h4>Writer:</h4>
+                            <%= @movie_name['Writer'] %>
+                            <h4>Release Date:</h4>
+                            <%= @movie_name['Released'] %>
+                            <h4>Actors:</h4>
+                            <%= @movie_name['Actors'] %>
+                            <h4>Genre:</h4>
+                            <%= @movie_name['Genre'] %>
+                        <h4> Ratings: </h4>
+                        <table class="table table-striped">
+                            <% @ratings.each do |rating| %>
+                            <tr>
+                                <td><%= rating["Source"]%></td>
+                                <td><%= rating["Value"]%></td>
+                            </tr>
+                            <% end %>
+                        </table>
+                        
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
